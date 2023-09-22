@@ -1,0 +1,9 @@
+﻿@using Blazor.DragDrop.Core
+
+@code {
+    [Parameter] public string Category { get; set; }
+}
+
+<Draggable>
+    <li class="list-group-item dropList">@Category</li>
+</Draggable>
