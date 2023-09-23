@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/Dewey007"
 @using Blazor.DragDrop.Core
 @using Mastering_Dewey_PWA.Components
 @using Microsoft.JSInterop
@@ -148,34 +148,34 @@
     <div class="row">
         <div class="col-md-3">
             <ul class="list-group">
-                <li class="list-group-item numberList1">000</li>
+                <li class="list-group-item numberList1">700</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList2">100</li>
+                <li class="list-group-item numberList2">710</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList3">200</li>
+                <li class="list-group-item numberList3">720</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList4">300</li>
+                <li class="list-group-item numberList4">730</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList5">400</li>
+                <li class="list-group-item numberList5">740</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList6">500</li>
+                <li class="list-group-item numberList6">750</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList7">600</li>
+                <li class="list-group-item numberList7">760</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList8">700</li>
+                <li class="list-group-item numberList8">770</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList9">800</li>
+                <li class="list-group-item numberList9">780</li>
             </ul>
             <ul class="list-group">
-                <li class="list-group-item numberList10">900</li>
+                <li class="list-group-item numberList10">790</li>
             </ul>
         </div>
         <div class="col-md-6">
@@ -216,30 +216,30 @@
 
     private void PopulateCategories()
     {
-        categories.AddLast("General Knowledge");
-        categories.AddLast("Philosophy & Psychology");
-        categories.AddLast("Religion");
-        categories.AddLast("Social Sciences");
-        categories.AddLast("Languages");
-        categories.AddLast("Science");
-        categories.AddLast("Technology");
-        categories.AddLast("Arts & Recreation");
-        categories.AddLast("Literature");
-        categories.AddLast("History & Geography");
+        categories.AddLast("The Arts");
+    categories.AddLast("Area planning and landscape architecture");
+    categories.AddLast("Architecture");
+    categories.AddLast("Sculpture and related arts");
+    categories.AddLast("Graphic arts");
+    categories.AddLast("Painting and paintings");
+    categories.AddLast("Printmaking and prints");
+    categories.AddLast("Photography, computer art, cinematography, videography");
+    categories.AddLast("Music");
+    categories.AddLast("Recreational and performing arts");
     }
 
     private void PopulateExpectedOrder()
     {
-        expectedOrder.AddLast("General Knowledge");
-        expectedOrder.AddLast("Philosophy & Psychology");
-        expectedOrder.AddLast("Religion");
-        expectedOrder.AddLast("Social Sciences");
-        expectedOrder.AddLast("Languages");
-        expectedOrder.AddLast("Science");
-        expectedOrder.AddLast("Technology");
-        expectedOrder.AddLast("Arts & Recreation");
-        expectedOrder.AddLast("Literature");
-        expectedOrder.AddLast("History & Geography");
+        expectedOrder.AddLast("The Arts");
+    expectedOrder.AddLast("Area planning and landscape architecture");
+    expectedOrder.AddLast("Architecture");
+    expectedOrder.AddLast("Sculpture and related arts");
+    expectedOrder.AddLast("Graphic arts");
+    expectedOrder.AddLast("Painting and paintings");
+    expectedOrder.AddLast("Printmaking and prints");
+    expectedOrder.AddLast("Photography, computer art, cinematography, videography");
+    expectedOrder.AddLast("Music");
+    expectedOrder.AddLast("Recreational and performing arts");
     }
 
     private string GetRandomCategory()
@@ -274,13 +274,11 @@
         if (isCorrect)
         {
             response = "correct";
-            NavigationManager.NavigateTo("Counter");
         }
         else
         {
             // The order is incorrect
             response = "incorrect";
-            NavigationManager.NavigateTo("Counter");
         }
     }
 
@@ -296,4 +294,3 @@
         base.OnInitialized();
     }
 }
-

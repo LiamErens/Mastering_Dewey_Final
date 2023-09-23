@@ -1,45 +1,131 @@
 ﻿@page "/counter"
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
 <style type="text/css">
     .dewey-image {
-        width: 150px;
-        height: 150px;
+        height: 225px; /* Adjust the height to fill the button */
+        width: 160px; /* Adjust the width to fill the button */
+        border-radius: 10px;
+        border: none;
     }
 
+    .dewey-button {
+        height: 225px;
+        width: 160px;
+        border: none;
+        border-radius: 10px;
+        transition: transform 0.3s; /* Add transition for smooth animation */
+    }
+    
+        .dewey-button:hover {
+            transform: scale(1.1); /* Increase size on hover */
+        }
+    .title-image{
+        height: auto;
+        width: 350px;
+    }
 </style>
-
-<div class="container">
+<h1 class="text-center mb-4"><img src="/chooseacategory.png" class="title-image" /></h1>
+<br />
+<div class="container" style="margin-left: 250px">
     <div class="row">
-        <div class="col-md-3">
-            <img src="~/Dewey000.png" alt="Image 1" class="dewey-image" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey000">
+                <img src="/dewey000.png" class="dewey-image" alt="Image 1" />
+            </button>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="Image 2" class="img-fluid" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey001">
+                <img src="/dewey100.png" class="dewey-image" alt="Image 2" />
+            </button>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="Image 3" class="img-fluid" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey002">
+                <img src="/dewey200.png" class="dewey-image" alt="Image 3" />
+            </button>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="Image 4" class="img-fluid" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey003">
+                <img src="/dewey300.png" class="dewey-image" alt="Image 4" />
+            </button>
+        </div>
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey004">
+                <img src="/dewey400.png" class="dewey-image" alt="Image 5" />
+            </button>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-md-3">
-            <img src="" alt="Image 5" class="img-fluid" />
+    <br /><br />
+    <div class="row">
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey005">
+                <img src="/dewey500.png" class="dewey-image" alt="Image 1" />
+            </button>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="Image 6" class="img-fluid" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey006">
+                <img src="/dewey600.png" class="dewey-image" alt="Image 1" />
+            </button>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="Image 7" class="img-fluid" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey007">
+                <img src="/dewey700.png" class="dewey-image" alt="Image 1" />
+            </button>
         </div>
-        <div class="col-md-3">
-            <img src="" alt="Image 8" class="img-fluid" />
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey008">
+                <img src="/dewey800.png" class="dewey-image" alt="Image 1" />
+            </button>
+        </div>
+        <div class="col-md-2">
+            <button class="dewey-button" @onclick="dewey009">
+                <img src="/dewey900.png" class="dewey-image" alt="Image 1" />
+            </button>
         </div>
     </div>
 </div>
 
-
-
-
-
+@code {
+    
+    private void dewey000()
+    {
+        NavigationManager.NavigateTo("Dewey000");
+    }
+    private void dewey001()
+    {
+        NavigationManager.NavigateTo("Dewey001");
+    }
+    private void dewey002()
+    {
+        NavigationManager.NavigateTo("Dewey002");
+    }
+    private void dewey003()
+    {
+        NavigationManager.NavigateTo("Dewey003");
+    }
+    private void dewey004()
+    {
+        NavigationManager.NavigateTo("Dewey004");
+    }
+    private void dewey005()
+    {
+        NavigationManager.NavigateTo("Dewey005");
+    }
+    private void dewey006()
+    {
+        NavigationManager.NavigateTo("Dewey006");
+    }
+    private void dewey007()
+    {
+        NavigationManager.NavigateTo("Dewey007");
+    }
+    private void dewey008()
+    {
+        NavigationManager.NavigateTo("Dewey008");
+    }
+    private void dewey009()
+    {
+        NavigationManager.NavigateTo("Dewey009");
+    }
+    
+}
