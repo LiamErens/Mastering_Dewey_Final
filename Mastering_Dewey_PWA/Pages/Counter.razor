@@ -3,8 +3,8 @@
 
 <style type="text/css">
     .dewey-image {
-        height: 225px; /* Adjust the height to fill the button */
-        width: 160px; /* Adjust the width to fill the button */
+        height: 215px; /* Adjust the height to fill the button */
+        width: 150px; /* Adjust the width to fill the button */
         border-radius: 10px;
         border: none;
     }
@@ -15,47 +15,49 @@
         border: none;
         border-radius: 10px;
         transition: transform 0.3s; /* Add transition for smooth animation */
+        background-color: transparent; /* Added this line */
+
     }
     
         .dewey-button:hover {
             transform: scale(1.1); /* Increase size on hover */
         }
+
     .title-image{
         height: auto;
-        width: 350px;
+        width: 310px;
     }
 </style>
 <h1 class="text-center mb-4"><img src="/chooseacategory.png" class="title-image" /></h1>
-<br />
-<div class="container" style="margin-left: 250px">
+<div class="container" style="margin-left:20px">
     <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2" >
             <button class="dewey-button" @onclick="dewey000">
                 <img src="/dewey000.png" class="dewey-image" alt="Image 1" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey001">
+            <button class="dewey-button" @onclick="dewey001" style="margin-left:20px">
                 <img src="/dewey100.png" class="dewey-image" alt="Image 2" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey002">
+            <button class="dewey-button" @onclick="dewey002" style="margin-left:40px">
                 <img src="/dewey200.png" class="dewey-image" alt="Image 3" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey003">
+            <button class="dewey-button" @onclick="dewey003" style="margin-left:60px">
                 <img src="/dewey300.png" class="dewey-image" alt="Image 4" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey004">
+            <button class="dewey-button" @onclick="dewey004" style="margin-left:80px">
                 <img src="/dewey400.png" class="dewey-image" alt="Image 5" />
             </button>
         </div>
     </div>
-    <br /><br />
+    <br />
     <div class="row">
         <div class="col-md-2">
             <button class="dewey-button" @onclick="dewey005">
@@ -63,22 +65,22 @@
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey006">
+            <button class="dewey-button" @onclick="dewey006" style="margin-left:20px">
                 <img src="/dewey600.png" class="dewey-image" alt="Image 1" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey007">
+            <button class="dewey-button" @onclick="dewey007" style="margin-left:40px">
                 <img src="/dewey700.png" class="dewey-image" alt="Image 1" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey008">
+            <button class="dewey-button" @onclick="dewey008" style="margin-left:60px">
                 <img src="/dewey800.png" class="dewey-image" alt="Image 1" />
             </button>
         </div>
         <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey009">
+            <button class="dewey-button" @onclick="dewey009" style="margin-left:80px">
                 <img src="/dewey900.png" class="dewey-image" alt="Image 1" />
             </button>
         </div>
