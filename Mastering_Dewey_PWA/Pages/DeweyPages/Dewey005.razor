@@ -4,11 +4,12 @@
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+@inject AppState AppState
 
 <style type="text/css">
     .title-image {
         height: auto;
-        width: 350px;
+        width: 280px;
     }
 
     .dropList {
@@ -16,10 +17,10 @@
         padding: 7px;
         background: @ConsoleColor.Black;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
-        width: 600px;
+        width: 420px;
     }
 
     .numberList1 {
@@ -27,8 +28,8 @@
         padding: 7px;
         background: @ConsoleColor.Gray;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -38,8 +39,8 @@
         padding: 7px;
         background: #ADD8E6;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -49,8 +50,8 @@
         padding: 7px;
         background: #800080;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -60,8 +61,8 @@
         padding: 7px;
         background: #008620;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -71,8 +72,8 @@
         padding: 7px;
         background: #FFA500;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -82,8 +83,8 @@
         padding: 7px;
         background: #66CDAA;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -93,8 +94,8 @@
         padding: 7px;
         background: #151B54;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -104,8 +105,8 @@
         padding: 7px;
         background: #E2F516;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -115,8 +116,8 @@
         padding: 7px;
         background: #F67280;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -126,8 +127,8 @@
         padding: 7px;
         background: #C19A6B;
         color: @ConsoleColor.White;
-        height: 50px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 16px;
         text-align: center;
         width: 80px;
     }
@@ -142,6 +143,8 @@
 
 </style>
 
+@if (AppState.HasPassedFirstTest)
+{
 <h1 class="text-center mb-4"><img src="/testyourknowledge.png" class="title-image" /></h1>
 <br />
 <div class="container ">
@@ -193,16 +196,31 @@
                     }
                 }
             </Dropzone>
-
         </div>
-
     </div>
 </div>
 <br />
 <button class="btn btn-primary" @onclick="CheckPositions">Check Positions</button>
-
-<div>@response</div>
-
+    <br />
+    <br />
+    <br />
+    @if (response == "correct")
+    {
+        <div class="alert alert-success" role="alert">
+            +5 points!!
+        </div>
+    }
+    else if (response == "incorrect")
+    {
+        <div class="alert alert-danger" role="alert">
+            Incorrect!
+        </div>
+    }
+}
+else
+{
+    
+}
 
 @code {
     bool isCorrect;
@@ -274,13 +292,11 @@
         if (isCorrect)
         {
             response = "correct";
-            NavigationManager.NavigateTo("Counter");
         }
         else
         {
             // The order is incorrect
             response = "incorrect";
-            NavigationManager.NavigateTo("Counter");
         }
     }
 

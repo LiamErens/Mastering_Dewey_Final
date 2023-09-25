@@ -1,5 +1,6 @@
 ﻿@page "/counter"
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+@inject AppState AppState
 
 <style type="text/css">
     .dewey-image {
@@ -28,64 +29,66 @@
         width: 310px;
     }
 </style>
-<h1 class="text-center mb-4"><img src="/chooseacategory.png" class="title-image" /></h1>
-<div class="container" style="margin-left:20px">
-    <div class="row">
-        <div class="col-md-2" >
-            <button class="dewey-button" @onclick="dewey000">
-                <img src="/dewey000.png" class="dewey-image" alt="Image 1" />
-            </button>
+
+    <h1 class="text-center mb-4"><img src="/chooseacategory.png" class="title-image" /></h1>
+    <div class="container" style="margin-left:20px">
+        <div class="row">
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey000">
+                    <img src="/dewey000.png" class="dewey-image" alt="Image 1" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey001" style="margin-left:20px">
+                    <img src="/dewey100.png" class="dewey-image" alt="Image 2" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey002" style="margin-left:40px">
+                    <img src="/dewey200.png" class="dewey-image" alt="Image 3" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey003" style="margin-left:60px">
+                    <img src="/dewey300.png" class="dewey-image" alt="Image 4" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey004" style="margin-left:80px">
+                    <img src="/dewey400.png" class="dewey-image" alt="Image 5" />
+                </button>
+            </div>
         </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey001" style="margin-left:20px">
-                <img src="/dewey100.png" class="dewey-image" alt="Image 2" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey002" style="margin-left:40px">
-                <img src="/dewey200.png" class="dewey-image" alt="Image 3" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey003" style="margin-left:60px">
-                <img src="/dewey300.png" class="dewey-image" alt="Image 4" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey004" style="margin-left:80px">
-                <img src="/dewey400.png" class="dewey-image" alt="Image 5" />
-            </button>
+        <br />
+        <div class="row">
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey005">
+                    <img src="/dewey500.png" class="dewey-image" alt="Image 1" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey006" style="margin-left:20px">
+                    <img src="/dewey600.png" class="dewey-image" alt="Image 1" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey007" style="margin-left:40px">
+                    <img src="/dewey700.png" class="dewey-image" alt="Image 1" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey008" style="margin-left:60px">
+                    <img src="/dewey800.png" class="dewey-image" alt="Image 1" />
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button class="dewey-button" @onclick="dewey009" style="margin-left:80px">
+                    <img src="/dewey900.png" class="dewey-image" alt="Image 1" />
+                </button>
+            </div>
         </div>
     </div>
-    <br />
-    <div class="row">
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey005">
-                <img src="/dewey500.png" class="dewey-image" alt="Image 1" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey006" style="margin-left:20px">
-                <img src="/dewey600.png" class="dewey-image" alt="Image 1" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey007" style="margin-left:40px">
-                <img src="/dewey700.png" class="dewey-image" alt="Image 1" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey008" style="margin-left:60px">
-                <img src="/dewey800.png" class="dewey-image" alt="Image 1" />
-            </button>
-        </div>
-        <div class="col-md-2">
-            <button class="dewey-button" @onclick="dewey009" style="margin-left:80px">
-                <img src="/dewey900.png" class="dewey-image" alt="Image 1" />
-            </button>
-        </div>
-    </div>
-</div>
+
 
 @code {
     

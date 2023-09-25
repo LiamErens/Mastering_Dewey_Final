@@ -4,8 +4,14 @@
 @using Microsoft.JSInterop
 @inject IJSRuntime JSRuntime
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+@inject AppState AppState
+
 
 <style type="text/css">
+    .incorrect-item {
+        border: 2px solid red; /* Add a red border to highlight incorrect items */
+    }
+
     .title-image {
         height: auto;
         width: 280px;
@@ -17,7 +23,7 @@
         background: @ConsoleColor.Black;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 420px;
     }
@@ -28,7 +34,7 @@
         background: @ConsoleColor.Gray;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -39,7 +45,7 @@
         background: #ADD8E6;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -50,7 +56,7 @@
         background: #800080;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -61,7 +67,7 @@
         background: #008620;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -72,7 +78,7 @@
         background: #FFA500;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -83,7 +89,7 @@
         background: #66CDAA;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -94,7 +100,7 @@
         background: #151B54;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -105,7 +111,7 @@
         background: #E2F516;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -116,7 +122,7 @@
         background: #F67280;
         color: @ConsoleColor.White;
         height: 40px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         width: 80px;
     }
@@ -143,6 +149,7 @@
 </style>
 
 <h1 class="text-center mb-4"><img src="/testyourknowledge.png" class="title-image" /></h1>
+
 <div class="container ">
     <div class="row">
         <div class="col-md-3">
@@ -186,7 +193,7 @@
                     {
                         <div>
                             <Draggable>
-                                <li class="list-group-item dropList draggable-item">@randomCategory</li>
+                                <li class="list-group-item dropList draggable-item @(incorrectItems.Contains(randomCategory) ? "incorrect-item" : "")">@randomCategory</li>
                             </Draggable>
                         </div>
                     }
@@ -199,8 +206,22 @@
 </div>
 <br />
 <button class="btn btn-primary" @onclick="CheckPositions">Check Positions</button>
+<br />
+<br />
+<br />
+@if (response == "correct")
+{
+    <div class="alert alert-success" role="alert">
+        +5 points!!
+    </div>
+}
+else if (response == "incorrect")
+{
+    <div class="alert alert-danger" role="alert">
+        Incorrect!
+    </div>
+}
 
-<div>@response</div>
 
 
 @code {
@@ -210,8 +231,10 @@
     LinkedList<string> usedCategories = new LinkedList<string>();
     LinkedList<string> expectedOrder = new LinkedList<string>();
     LinkedList<string> actualOrder = new LinkedList<string>();
+    List<string> incorrectItems = new List<string>();
     Random rand = new Random();
     private bool isInitialized = false;
+
 
     private void PopulateCategories()
     {
@@ -241,6 +264,7 @@
         expectedOrder.AddLast("History & Geography");
     }
 
+
     private string GetRandomCategory()
     {
         if (categories.Count > 0)
@@ -259,10 +283,12 @@
         return string.Empty;
     }
 
+
     private async Task<List<string>> GetActualOrder()
     {
         return await JSRuntime.InvokeAsync<List<string>>("blazorCheckPositions");
     }
+
 
     private async Task CheckPositions()
     {
@@ -273,13 +299,16 @@
         if (isCorrect)
         {
             response = "correct";
+            AppState.HasPassedFirstTest = true;
             NavigationManager.NavigateTo("Counter");
         }
         else
         {
-            // The order is incorrect
             response = "incorrect";
-            NavigationManager.NavigateTo("Counter");
+            AppState.HasPassedFirstTest = false;
+
+            // Identify incorrect items and add them to the list
+            incorrectItems = actualOrder.Except(expectedOrder).ToList();
         }
     }
 
