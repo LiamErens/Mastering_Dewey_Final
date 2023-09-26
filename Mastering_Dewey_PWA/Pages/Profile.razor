@@ -1,0 +1,73 @@
+﻿@page "/Profile"
+
+<style>
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        background-image: linear-gradient(to bottom right, #add8e6, #87cefa);
+    }
+
+    .uploadcontainer {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        backdrop-filter: blur(30px);
+    }
+
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        max-width: 700px;
+        backdrop-filter: blur(10px);
+        margin-top: 0;
+        border-radius: 20px;
+        height: auto;
+        font-size: 12px;
+    }
+
+    .profile-image {
+        margin-top: auto;
+    }
+
+    .profile-details {
+        text-align: center;
+    }
+
+    .profile-info {
+        text-align: left;
+    }
+
+    .node-icon {
+        width: 150px;
+        height: 150px;
+    }
+</style>
+
+<body>
+    <div class="center-container" style="margin-top: 250px">
+        <div class="profile-container shadow-lg">
+            <div class="profile-image">
+                <img class="node-icon" src="https://www.gravatar.com/avatar/emailhashhere?s=200" alt="Profile Photo" />
+            </div>
+            <div class="profile-details">
+                <h4>Profile Info</h4><br />
+                <div class="profile-info">
+                    <p><strong>User: </strong> Liam Erens</p>
+                    <p><strong>Points: </strong> </p>
+                    <p><strong>Rank: </strong> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
