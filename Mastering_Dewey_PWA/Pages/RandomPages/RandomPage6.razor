@@ -1,4 +1,4 @@
-﻿@page "/Dewey005"
+﻿@page "/RandomPage6"
 @using Blazor.DragDrop.Core
 @using Mastering_Dewey_PWA.Components
 @using Microsoft.JSInterop
@@ -30,7 +30,8 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 420px;
+        width: 240px;
+        margin-left: 120px;
     }
 
     .numberList1 {
@@ -41,7 +42,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList2 {
@@ -52,7 +53,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList3 {
@@ -63,7 +64,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList4 {
@@ -74,7 +75,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList5 {
@@ -85,7 +86,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList6 {
@@ -96,7 +97,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList7 {
@@ -107,7 +108,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList8 {
@@ -118,7 +119,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList9 {
@@ -129,7 +130,7 @@
         height: 40px;
         font-size: 14px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .numberList10 {
@@ -140,7 +141,7 @@
         height: 40px;
         font-size: 16px;
         text-align: center;
-        width: 80px;
+        width: 300px;
     }
 
     .draggable-item {
@@ -155,65 +156,47 @@
 
 @if (AppState.HasPassedFirstTest)
 {
-<h1 class="text-center mb-4"><img src="/testyourknowledge.png" class="title-image" /></h1>
-<br />
-<div class="container ">
-    <div class="row">
-        <div class="col-md-3">
-            <ul class="list-group">
-                <li class="list-group-item numberList1">500</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList2">510</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList3">520</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList4">530</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList5">540</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList6">550</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList7">560</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList8">570</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList9">580</li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item numberList10">590</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <Dropzone>
-                @for (int i = 1; i <= 10; i++)
-                {
-                    var randomCategory = GetRandomCategory();
-                    if (!string.IsNullOrEmpty(randomCategory))
+    <h1 class="text-center mb-4"><img src="/match-the-column.png" class="title-image" /></h1>
+    <br />
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item numberList2">Philosophy & Psychology</li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item numberList10">History & Geography</li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item numberList5">Languages</li>
+                </ul>
+                <ul class="list-group">
+                    <li class="list-group-item numberList1">General Knowledge</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <Dropzone>
+                    @for (int i = 1; i <= 7; i++)
                     {
-                        <div>
-                            <Draggable>
-                                <li class="list-group-item dropList draggable-item">@randomCategory</li>
-                            </Draggable>
-                        </div>
+                        var randomCategory = GetRandomCategory();
+                        if (!string.IsNullOrEmpty(randomCategory))
+                        {
+                            <div>
+                                <Draggable>
+                                    <li class="list-group-item dropList draggable-item">@randomCategory</li>
+                                </Draggable>
+                            </div>
+                        }
                     }
-                }
-            </Dropzone>
+                </Dropzone>
+
+            </div>
+
         </div>
     </div>
-</div>
-<br />
+    <br />
     <button class="btn btn-primary" style="background-color: green; margin-left: 410px" @onclick="CheckPositions">@answer</button>
-    <br />
-    <br />
-    <br />
+
     @if (response == "correct")
     {
         <div class="alert alert-success" role="alert" style="margin-left: 500px">
@@ -228,61 +211,59 @@
 else
 {
     <h1 class="" style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 24px;margin-top: 100px;">Please complete the first quiz.</h1>
-
 }
 
 @code {
     string answer = "CHECK ME!";
     bool isCorrect;
     string response;
-    LinkedList<string> categories = new LinkedList<string>();
-    LinkedList<string> usedCategories = new LinkedList<string>();
-    LinkedList<string> expectedOrder = new LinkedList<string>();
-    LinkedList<string> actualOrder = new LinkedList<string>();
+    Dictionary<string, bool> categories = new Dictionary<string, bool>();
+    List<string> usedCategories = new List<string>();
+    List<string> expectedOrder = new List<string>();
+    List<string> actualOrder = new List<string>();
     Random rand = new Random();
     private bool isInitialized = false;
 
     private void PopulateCategories()
     {
-        categories.AddLast("Natural sciences and mathematics");
-        categories.AddLast("Mathematics");
-        categories.AddLast("Astronomy and allied sciences");
-        categories.AddLast("Physics");
-        categories.AddLast("Chemistry and allied sciences");
-        categories.AddLast("Earth sciences and geology");
-        categories.AddLast("Paleontology");
-        categories.AddLast("Biology");
-        categories.AddLast("Plants");
-        categories.AddLast("Animals");
+
+        categories["100"] = false; // Philosophy & Psychology
+        categories["900"] = false; // // History & Geography
+        categories["400"] = false; // // Languages
+        categories["000"] = false; // // General Knowledge
+        categories["800"] = false; // // Literature
+        categories["500"] = false; // Science
+        categories["300"] = false; // Social Sciences
+        //categories["200"] = false; // Religion
+        //categories["600"] = false; // Technology
+        //categories["700"] = false; // Arts & Recreation
     }
 
     private void PopulateExpectedOrder()
     {
-        expectedOrder.AddLast("Natural sciences and mathematics");
-        expectedOrder.AddLast("Mathematics");
-        expectedOrder.AddLast("Astronomy and allied sciences");
-        expectedOrder.AddLast("Physics");
-        expectedOrder.AddLast("Chemistry and allied sciences");
-        expectedOrder.AddLast("Earth sciences and geology");
-        expectedOrder.AddLast("Paleontology");
-        expectedOrder.AddLast("Biology");
-        expectedOrder.AddLast("Plants");
-        expectedOrder.AddLast("Animals");
+        expectedOrder.AddRange(new List<string> {
+            "100",
+            "900",
+            "400",
+            "000",
+            "800",
+            "500",
+            "300"
+            //"200",
+            //"600",
+            //"700"
+        });
     }
 
     private string GetRandomCategory()
     {
         if (categories.Count > 0)
         {
-            int index = rand.Next(categories.Count);
-            var node = categories.First;
-            for (int i = 0; i < index; i++)
-            {
-                node = node.Next;
-            }
-            string randomCategory = node.Value;
-            usedCategories.AddLast(randomCategory);
-            categories.Remove(node);
+            List<string> keys = categories.Keys.ToList();
+            int index = rand.Next(keys.Count);
+            string randomCategory = keys[index];
+            usedCategories.Add(randomCategory);
+            categories.Remove(randomCategory);
             return randomCategory;
         }
         return string.Empty;
@@ -295,16 +276,20 @@ else
 
     private async Task CheckPositions()
     {
-        List<string> actualOrder = await JSRuntime.InvokeAsync<List<string>>("blazorCheckPositions");
+        List<string> actualOrder = await GetActualOrder();
 
-        isCorrect = Enumerable.SequenceEqual(actualOrder, expectedOrder);
+        // Compare only the first four items
+        var actualFirstFour = actualOrder.Take(4).ToList();
+        var expectedFirstFour = expectedOrder.Take(4).ToList();
+
+        isCorrect = Enumerable.SequenceEqual(actualFirstFour, expectedFirstFour);
 
         if (isCorrect)
         {
             response = "correct";
             AppState.UserPoints += 5;
+            NavigationManager.NavigateTo("FetchData");
             AppState.CorrectQuizzes++; // Increment correct quiz counter
-
         }
         else
         {
@@ -321,6 +306,7 @@ else
         {
             PopulateCategories();
             PopulateExpectedOrder();
+            AppState.HasPassedFirstTest = true;
             isInitialized = true;
         }
         base.OnInitialized();

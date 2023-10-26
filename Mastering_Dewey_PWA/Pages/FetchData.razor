@@ -1,1 +1,100 @@
-﻿@page "/fetchdata"
+﻿@page "/FetchData"
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+@inject AppState AppState
+
+@if (randomNum == 1)
+{
+    RandomPage1();
+}
+@if (randomNum == 2)
+{
+    RandomPage2();
+}
+@if (randomNum == 3)
+{
+    RandomPage3();
+}
+@if (randomNum == 4)
+{
+    RandomPage4();
+}
+@if (randomNum == 5)
+{
+    RandomPage5();
+}
+@if (randomNum == 6)
+{
+    RandomPage6();
+}
+@if (randomNum == 7)
+{
+    RandomPage7();
+}
+@if (randomNum == 8)
+{
+    RandomPage8();
+}
+@if (randomNum == 9)
+{
+    RandomPage9();
+}
+@if (randomNum == 10)
+{
+    RandomPage10();
+}
+
+@code {
+    int randomNum;
+    
+    private void RandomPage1()
+    {
+        NavigationManager.NavigateTo("RandomPage1");
+    }
+    private void RandomPage2()
+    {
+        NavigationManager.NavigateTo("RandomPage2");
+    }
+    private void RandomPage3()
+    {
+        NavigationManager.NavigateTo("RandomPage3");
+    }
+    private void RandomPage4()
+    {
+        NavigationManager.NavigateTo("RandomPage4");
+    }
+    private void RandomPage5()
+    {
+        NavigationManager.NavigateTo("RandomPage5");
+    }
+    private void RandomPage6()
+    {
+        NavigationManager.NavigateTo("RandomPage6");
+    }
+    private void RandomPage7()
+    {
+        NavigationManager.NavigateTo("RandomPage7");
+    }
+    private void RandomPage8()
+    {
+        NavigationManager.NavigateTo("RandomPage8");
+    }
+    private void RandomPage9()
+    {
+        NavigationManager.NavigateTo("RandomPage9");
+    }
+    private void RandomPage10()
+    {
+        NavigationManager.NavigateTo("RandomPage10");
+    }
+    
+    private int GenerateRandomNumber()
+    {
+        Random rand = new Random();
+        return rand.Next(1, 11);
+    }
+
+    protected override void OnInitialized()
+    {
+        randomNum = GenerateRandomNumber();
+    }
+}

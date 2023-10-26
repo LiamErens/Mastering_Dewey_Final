@@ -64,7 +64,7 @@
 </style>
 
 <body>
-    <div class="center-container" style="margin-top: 100px">
+    <div class="center-container" style="margin-top: 70px">
         <div class="profile-container shadow-lg">
             <div class="profile-image">
                 <img class="node-icon" src="https://www.gravatar.com/avatar/-emailhashhere-?s=200" alt="Profile Photo" />
@@ -75,6 +75,8 @@
                 <div class="profile-info">
                     <p><strong>Points: </strong> @AppState.UserPoints</p>
                     <p><strong>Rank: </strong> @AppState.Rank</p>
+                    <p><strong>Correct Quizzes: </strong> @AppState.IncorrectQuizzes.ToString()</p>
+                    <p><strong>Incorrec Quizzes: </strong> @AppState.CorrectQuizzes.ToString()</p>
                     <div style="margin-left: 45px">
                         @if (AppState.Rank == "Bronze")
                         {

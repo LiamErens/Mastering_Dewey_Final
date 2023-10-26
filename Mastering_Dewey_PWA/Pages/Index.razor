@@ -1,4 +1,5 @@
 ﻿@page "/"
+
 @using Blazor.DragDrop.Core
 @using Mastering_Dewey_PWA.Components
 @using Microsoft.JSInterop
@@ -306,6 +307,8 @@ else if (response == "incorrect")
             AppState.HasPassedFirstTest = true;
             AppState.UserPoints += 5;
             NavigationManager.NavigateTo("Counter");
+            AppState.CorrectQuizzes++; // Increment correct quiz counter
+
         }
         else
         {
@@ -314,6 +317,8 @@ else if (response == "incorrect")
 
             // Identify incorrect items and add them to the list
             incorrectItems = actualOrder.Except(expectedOrder).ToList();
+            AppState.IncorrectQuizzes++; // Increment incorrect quiz counter
+
         }
     }
 

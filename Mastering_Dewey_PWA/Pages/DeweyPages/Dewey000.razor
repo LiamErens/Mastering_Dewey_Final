@@ -302,11 +302,14 @@ else
         {
             response = "correct";
             AppState.UserPoints += 5;
+            AppState.CorrectQuizzes++; // Increment correct quiz counter
+
         }
         else
         {
             // The order is incorrect
             response = "incorrect";
+            AppState.IncorrectQuizzes++; // Increment incorrect quiz counter
         }
     }
 

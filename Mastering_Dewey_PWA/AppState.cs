@@ -3,6 +3,8 @@
     public class AppState
     {
         public int UserPoints { get; set; } = 0;
+        public int CorrectQuizzes { get; set; } = 0; // Counter for correct quizzes
+        public int IncorrectQuizzes { get; set; } = 0; // Counter for incorrect quizzes
         public bool HasPassedFirstTest { get; set; }
         public string Rank
         {
