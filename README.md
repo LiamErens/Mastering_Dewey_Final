@@ -39,7 +39,11 @@ To get started, follow these steps:
 
 - Rankings are based on the total points earned. Aim for the top spot!
 
+## NEW FEATURE - Finding call numbers
 
+- Player is given a Dewey Decimal Call Number and are needed to select the correct category among four options!
+
+  
 ## Accessing the Web Application
 
 To access the Mastering Dewey web applicating, click [here](https://masteringdeweypart2.azurewebsites.net).
