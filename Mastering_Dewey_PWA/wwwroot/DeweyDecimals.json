@@ -1,0 +1,236 @@
+  {
+    "DeweyTree": {
+      "Children": [
+        {
+          "Category": "Dewey000",
+          "Children": [
+            {
+              "Category": "090 | Manuscripts & rare books",
+              "Children": [
+                { "Category": "090 | Manuscripts & rare books" },
+                { "Category": "091 | Manuscripts" },
+                { "Category": "092 | Block books" },
+                { "Category": "093 | Incunabula" }
+              ]
+            },
+            {
+              "Category": "070 News Media, Journalism, & Publishing",
+              "Children": [
+                { "Category": "071 | Newspapers in North America" },
+                { "Category": "072 | Newspapers in British Isles in England" },
+                { "Category": "074 | Newspapers in France & Monaco" },
+                { "Category": "075 | Newspapers in Italy & adjacent islands" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey100",
+          "Children": [
+            {
+              "Category": "110 | Metaphysics",
+              "Children": [
+                { "Category": "110 | Metaphysics" },
+                { "Category": "111 | Ontology" },
+                { "Category": "113 | Cosmology" },
+                { "Category": "114 | Space" }
+              ]
+            },
+            {
+              "Category": "140 | Philosophical Schools",
+              "Children": [
+                { "Category": "141 | Idealism & related systems & doctrines" },
+                { "Category": "142 | Critical philosophy" },
+                { "Category": "143 | Bergsonism & intuitionism" },
+                { "Category": "145 | Sensationalism" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey200",
+          "Children": [
+            {
+              "Category": "210 | Philosophy & theory of religion",
+              "Children": [
+                { "Category": "211 | Concepts of god" },
+                { "Category": "213 | Creation" },
+                { "Category": "214 | Theodicy" },
+                { "Category": "215 | Science & religion" }
+              ]
+            },
+            {
+              "Category": "220 | The Bible",
+              "Children": [
+                { "Category": "221 | Old Testament" },
+                { "Category": "222 | Historical books of Old Testament" },
+                { "Category": "223 | New Testament" },
+                { "Category": "226 | Gospels & Acts" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey300",
+          "Children": [
+            {
+              "Category": "340 | Law",
+              "Children": [
+                { "Category": "341 | Law of nations" },
+                { "Category": "345 | Criminal law" },
+                { "Category": "346 | Private law" },
+                { "Category": "347 | Procedure & courts" }
+              ]
+            },
+            {
+              "Category": "330 | Economics",
+              "Children": [
+                { "Category": "331 | Labor economics" },
+                { "Category": "332 | Financial economics" },
+                { "Category": "333 | Economics of land & energy" },
+                { "Category": "336 | Public finance" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey400",
+          "Children": [
+            {
+              "Category": "430 | German and Related Languages",
+              "Children": [
+                { "Category": "433 | Dictionaries of standard German" },
+                { "Category": "435 | Grammar of standard German" },
+                { "Category": "438 | Standard German usage" },
+                { "Category": "439 | Other Germanic languages" }
+              ]
+            },
+            {
+              "Category": "410 | Linguistics",
+              "Children": [
+                { "Category": "411 | Writing systems of standard forms of languages" },
+                { "Category": "412 | Etymology of standard forms of languages" },
+                { "Category": "417 | Dialectology & historical linguistics" },
+                { "Category": "419 | Sign languages" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey500",
+          "Children": [
+            {
+              "Category": "520 | Astronomy & Allied Sciences",
+              "Children": [
+                { "Category": "525 | Earth" },
+                { "Category": "527 | Celestial navigation" },
+                { "Category": "529 | Chronology" },
+                { "Category": "521 | Celestial mechanics" }
+              ]
+            },
+            {
+              "Category": "540 | Chemistry & Allied Sciences",
+              "Children": [
+                { "Category": "541 | Physical chemistry" },
+                { "Category": "543 | Analytical chemistry" },
+                { "Category": "547 | Organic chemistry" },
+                { "Category": "548 | Crystallography" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey600",
+          "Children": [
+            {
+              "Category": "610 | Medicine & Health",
+              "Children": [
+                { "Category": "611 | Human anatomy" },
+                { "Category": "612 | Human physiology" },
+                { "Category": "613 | Personal health & safety" },
+                { "Category": "616 | Diseases" }
+              ]
+            },
+            {
+              "Category": "630 | Agriculture & Related Technologies",
+              "Children": [
+                { "Category": "632 | Plant injuries & diseases" },
+                { "Category": "633 | Field & plantation crops" },
+                { "Category": "634 | Orchards fruits & forestry" },
+                { "Category": "638 | Insect culture" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey700",
+          "Children": [
+            {
+              "Category": "740 | Graphic Arts & Decorative Arts",
+              "Children": [
+                { "Category": "741 | Drawing & drawings" },
+                { "Category": "742 | Perspective in drawing" },
+                { "Category": "746 | Textile arts" },
+                { "Category": "748 | Glass" }
+              ]
+            },
+            {
+              "Category": "720 | Architecture",
+              "Children": [
+                { "Category": "725 | Public structures" },
+                { "Category": "726 | Buildings for religious & related purposes" },
+                { "Category": "728 | Residential & related buildings" },
+                { "Category": "729 | Design & decoration of structures & accessories" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey800",
+          "Children": [
+            {
+              "Category": "800 | Literature, Rhetoric & Criticism",
+              "Children": [
+                { "Category": "801 | Philosophy & theory" },
+                { "Category": "802 | Miscellany" },
+                { "Category": "805 | Serial publications" },
+                { "Category": "806 | Organizations & management" }
+              ]
+            },
+            {
+              "Category": "810 | American Literature in English",
+              "Children": [
+                { "Category": "811 | American poetry in English" },
+                { "Category": "813 | American fiction in English" },
+                { "Category": "814 | American essays in English" },
+                { "Category": "816 | American letters in English" }
+              ]
+            }
+          ]
+        },
+        {
+          "Category": "Dewey900",
+          "Children": [
+            {
+              "Category": "910 | Geography & Travel",
+              "Children": [
+                { "Category": "911 | Historical geography" },
+                { "Category": "914 | Geography of & travel in Europe" },
+                { "Category": "916 | Geography of & travel in Africa" },
+                { "Category": "918 | Geography of & travel in South America" }
+              ]
+            },
+            {
+              "Category": "930 | History of Ancient World",
+              "Children": [
+                { "Category": "931 | China to 420" },
+                { "Category": "932 | Egypt to 640" },
+                { "Category": "933 | Palestine to 70" },
+                { "Category": "934 | South Asia to 647" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }

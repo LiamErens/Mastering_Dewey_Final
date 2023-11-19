@@ -1,0 +1,238 @@
+﻿@page "/FindingCallNumbers"
+@using Newtonsoft.Json
+@inject DeweyTreeService DeweyTreeService
+@inject ILogger<FindingCallNumbers> Logger
+@inject HttpClient HttpClient
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+@inject AppState AppState
+
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        background-image: linear-gradient(to bottom right, #CCCCFF, #DCD0FF);
+    }
+
+    .dewey-image {
+        height: 215px;
+        width: 150px;
+        border-radius: 10px;
+        border: none;
+    }
+
+    .dewey-button {
+        height: 225px;
+        width: 160px;
+        border: none;
+        border-radius: 5px;
+        transition: transform 0.3s;
+        background-color: transparent;
+    }
+
+        .dewey-button:hover {
+            transform: scale(1.1);
+        }
+</style>
+
+<br />
+<h1 class="text-center mb-4">Select the correct answer</h1>
+
+<h1 style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 24px; margin-top: 100px;">@thirdLevelCategory</h1>
+<br />
+<div class="" style="margin-left: 120px">
+@if (shuffledMainCategories != null && shuffledMainCategories.Any())
+{
+    var correctAnswer = mainCategories.First();
+    var correctAnswerImg = correctAnswer.Category + ".png";
+
+    var answers = new List<(DeweyTreeService.DeweyTreeNode, string)>
+    {
+        (correctAnswer, correctAnswerImg)
+    };
+
+    var incorrectAnswers = shuffledMainCategories.Take(3).ToList();
+    answers.AddRange(incorrectAnswers.Select(answer => (answer, answer.Category + ".png")));
+
+    // Shuffle the answers
+    answers = answers.OrderBy(x => Guid.NewGuid()).ToList();
+      
+    foreach (var (answer, answerImg) in answers)
+    {
+        <button class="dewey-button" @onclick="() => CheckAnswer(answer, answer == correctAnswer)">
+            <img src="/@answerImg" class="dewey-image" alt="Image 1" />
+        </button>
+    }
+}
+else
+{
+    <p>Not enough main categories for options.</p>
+}
+</div>
+<br />
+<br />
+<div class="text-center alert-success">@answerstatus</div>
+
+@*
+    //This code was adapted from javascript - shuffle HTML list element order
+    //https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+    //Author bio link: https://stackoverflow.com/users/552067/web-designer
+    //Accessed: 18 Nov 2023
+*@
+
+
+
+@code {
+    private string thirdLevelCategory;
+    private List<DeweyTreeService.DeweyTreeNode> mainCategories;
+    private List<DeweyTreeService.DeweyTreeNode> randomMainCategories;
+    private List<DeweyTreeService.DeweyTreeNode> shuffledMainCategories;
+    private Random random = new Random();
+    private bool isCorrectAnswer = true;
+    private DeweyTreeService.DeweyTreeNode correctAnswer;
+    private string answerstatus = "";
+    protected override async Task OnInitializedAsync()
+    {
+        await StartQuiz();
+    }
+
+    public async Task StartQuiz()
+    {
+        try
+        {
+            var filePath = $"DeweyDecimals.json?v={DateTime.UtcNow.Ticks}";
+            var fileContent = await HttpClient.GetStringAsync(filePath);
+
+            Console.WriteLine("File Content:");
+            Console.WriteLine(fileContent);
+
+            Console.WriteLine("File Content Retrieved Successfully.");
+
+            var deweyTree = DeweyTreeService.BuildDeweyTree(fileContent);
+
+            Console.WriteLine("Dewey Decimal Tree Structure:");
+            Console.WriteLine(JsonConvert.SerializeObject(deweyTree, Formatting.Indented));
+
+            if (deweyTree != null)
+            {
+                Console.WriteLine("Dewey Tree Built Successfully.");
+
+                thirdLevelCategory = DeweyTreeService.GetRandomThirdLevelCategory(deweyTree);
+
+                randomMainCategories = GetRandomMainCategories(deweyTree, 9);
+
+                shuffledMainCategories = randomMainCategories.OrderBy(x => Guid.NewGuid()).ToList();
+
+                if (randomMainCategories != null && randomMainCategories.Any())
+                {
+                    Console.WriteLine($"Number of Random Main Categories: {randomMainCategories.Count}");
+                }
+                else
+                {
+                    Console.WriteLine("Random Main Categories is null or empty.");
+                }
+
+                if (!string.IsNullOrEmpty(thirdLevelCategory))
+                {
+                    Console.WriteLine($"Selected Third Level Category: {thirdLevelCategory}");
+
+                    mainCategories = GetMainCategoriesForQuiz(deweyTree, thirdLevelCategory);
+
+                    if (mainCategories != null && mainCategories.Any())
+                    {
+                        Console.WriteLine($"Number of Main Categories: {mainCategories.Count}: {mainCategories.First().Category}");
+                        correctAnswer = shuffledMainCategories.First(); // Assign correctAnswer here
+                    }
+                    else
+                    {
+                        Console.WriteLine("Main Categories is null or empty.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Third Level Category.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Dewey Tree is null.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching or processing file content: {ex.Message}");
+        }
+    }
+    //This code was adapted from Query a collection of objects
+    //https://learn.microsoft.com/en-us/dotnet/csharp/linq/query-a-collection-of-objects
+    //Author: Microsoft
+    //Author bio link: https://www.microsoft.com/en-za/
+    //Accessed: 16 Nov 2023
+    
+    private List<DeweyTreeService.DeweyTreeNode> GetRandomMainCategories(DeweyTreeService.DeweyTreeNode root, int count)
+    {
+        if (root != null && root.Children != null)
+        {
+            var mainCategories = root.Children;
+            mainCategories = mainCategories.OrderBy(x => Guid.NewGuid()).Distinct().ToList();
+            var randomMainCategories = mainCategories.Take(count).ToList();
+            return randomMainCategories;
+        }
+        return new List<DeweyTreeService.DeweyTreeNode>();
+    }
+
+    private List<DeweyTreeService.DeweyTreeNode> GetMainCategoriesForQuiz(DeweyTreeService.DeweyTreeNode root, string thirdLevelCategory)
+    {
+        if (root != null && root.Children != null)
+        {
+            var thirdLevelNode = root.Children
+                .SelectMany(mainCategory => mainCategory.Children)
+                .SelectMany(subCategory => subCategory.Children)
+                .FirstOrDefault(node => node.Category == thirdLevelCategory);
+
+            if (thirdLevelNode != null)
+            {
+                var mainCategories = root.Children
+                    .Where(mainCategory => mainCategory.Children
+                        .Any(subCategory => subCategory.Children
+                            .Any(node => node.Category == thirdLevelNode.Category)))
+                    .ToList();
+
+                if (mainCategories.Any())
+                {
+                    return mainCategories;
+                }
+            }
+        }
+        return new List<DeweyTreeService.DeweyTreeNode>();
+    }
+
+    //This code was adapted from How to map JSON to C# Objects
+    //https://stackoverflow.com/questions/17086190/linq-query-for-selecting-an-item-from-tree-structure-but-to-look-in-the-whole-d
+    //Author bio link: https://stackoverflow.com/users/966638/petko-stankoski
+    //Accessed: 16 Nov 2023
+
+    private async Task CheckAnswer(DeweyTreeService.DeweyTreeNode selectedCategory, bool isCorrectAnswer)
+    {
+        var actualCorrectAnswer = mainCategories.First();
+
+        if (isCorrectAnswer && selectedCategory == actualCorrectAnswer)
+        {
+            Console.WriteLine("Correct!");
+            Logger.LogInformation("Correct!");
+            AppState.UserPoints += 5;
+            AppState.CorrectQuizzes++;
+            answerstatus = "Correct!";
+        }
+        else
+        {
+            Console.WriteLine("Incorrect!");
+            Logger.LogInformation("Incorrect!");
+            AppState.IncorrectQuizzes++;
+            answerstatus = "Incorrect!";
+        }
+
+        // Wait for StartQuiz to complete before reloading the quiz
+        await StartQuiz();
+    }
+}
