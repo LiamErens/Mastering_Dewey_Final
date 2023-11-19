@@ -31,25 +31,14 @@ To get started, follow these steps:
 
 - **Draggable Items**: You can drag items in the right hand column to match their decimal shown in the column on the left. Items will enlarge slightly when hovered over for better visibility.
 
-- **Feedback**: After checking, you'll receive feedback on your organization. If correct, you'll earn **+5 points**! If incorrect, the incorrect items will be highlighted.
-
-## Points and Rankings
+- **Feedback**: After checking, you'll receive feedback on your organization and correctness. If correct, you'll earn **+5 points**! If incorrect, the incorrect items will be highlighted.
+  
+## Points and Rankings - Gamification
 
 - Players earn **5 points** for every quiz they successfully complete.
 
 - Rankings are based on the total points earned. Aim for the top spot!
 
-## Code Details
-
-The underlying code for this project is written in Blazor. Here are some key aspects:
-
-- `PopulateCategories()` and `PopulateExpectedOrder()`: These functions initialize the categories and their expected order.
-
-- `GetRandomCategory()`: This function retrieves a random category for the user to organize.
-
-- `GetActualOrder()`: This asynchronous function uses JavaScript interop to get the actual order of items.
-
-- `CheckPositions()`: This function compares the user's organization with the expected order and provides feedback.
 
 ## Accessing the Web Application
 
